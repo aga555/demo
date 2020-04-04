@@ -1,21 +1,33 @@
-<button mat-button>Click me!</button>
-<button mat-fab>Click me!</button>
-<button color="primary" (click)="onClick()" mat-flat-button>Click me!</button>
-<mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
 <div class="container">
+  <h3>
+    Signup
+  </h3>
   <hr>
-  <mat-form-field>
-    <label>
-      <input matInput placeholder="Eneter your name">
-    </label>
-  </mat-form-field>
-  <hr>
-  <mat-form-field>
-    <label>
-      <input matInput  [type]="flag? 'password': 'text'" placeholder="Enter your password">
-      <mat-icon (click)="flag=!flag" matSuffix >{{flag? 'visibility': 'visibility_off'}}</mat-icon>
+  <form>
+    <mat-form-field>
+      <label>
+        <input
+          ngModel required email  name="email" #email="ngModel"
+          matInput type="email" placeholder="Enter your name">
+      </label>
 
-    </label>
-  </mat-form-field>
+      <mat-error *ngIf="email.hasError('required')"> Email  is required</mat-error>
+      <mat-error *ngIf="!email.hasError('required')"> Email  is invalid</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field hintLabel="Only 8 character">
 
+      <label>
+        <input maxlength="8"
+          required
+               ngModel name="password" #password="ngModel"
+               matInput [type]="flag? 'password': 'text'" placeholder="Enter your password">
+      </label>
+      <mat-icon (click)="flag=!flag" matSuffix>{{flag ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-hint align="start"></mat-hint>
+
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
 </div>
