@@ -1,13 +1,21 @@
-
-  <button mat-button>Click me!</button>
-  <button mat-fab>Click me!</button>
-  <button color="primary" (click)="onClick()" mat-flat-button>Click me!</button>
-  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-  <div class="container">
+<button mat-button>Click me!</button>
+<button mat-fab>Click me!</button>
+<button color="primary" (click)="onClick()" mat-flat-button>Click me!</button>
+<mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+<div class="container">
   <hr>
   <mat-form-field>
     <label>
       <input matInput placeholder="Eneter your name">
     </label>
   </mat-form-field>
+  <hr>
+  <mat-form-field>
+    <label>
+      <input matInput  [type]="flag? 'password': 'text'" placeholder="Enter your password">
+      <mat-icon (click)="flag=!flag" matSuffix >{{flag? 'visibility': 'visibility_off'}}</mat-icon>
+
+    </label>
+  </mat-form-field>
+
 </div>
